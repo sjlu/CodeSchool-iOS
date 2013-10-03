@@ -19,13 +19,19 @@
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor colorWithRed:0.462 green:0.749 blue: 0.937 alpha: 1.0];
 
-  UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+  UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
   [firstButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
   firstButton.frame = CGRectMake(100, 100, 100, 44);
-  [firstButton setTitle:@"Click me!" forState:UIControlStateNormal];
-  [firstButton setTitle:@"Clicked!" forState:UIControlStateHighlighted];
+  [firstButton setTitle:@"Make 50%" forState:UIControlStateNormal];
 
   [self.view addSubview:firstButton];
+
+  UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [secondButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+  secondButton.frame = CGRectMake(100, 200, 100, 44);
+  [secondButton setTitle:@"Make 100%" forState:UIControlStateNormal];
+
+  [self.view addSubview:secondButton];
 
   UILabel *firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 30, 200, 44)];
   firstLabel.backgroundColor = [UIColor clearColor];
@@ -37,8 +43,15 @@
 - (void)buttonPressed:(UIButton *)sender
 {
   NSLog(@"Button pressed, sender: %@", sender);
-  self.view.alpha = ((double)arc4random() / 0x100000000);
-  [sender removeFromSuperview];
+  NSLog(@"This button was clicked %@", sender.titleLabel.text);
+  if ([sender.titleLabel.text isEqualToString:@"Make 50%"]) {
+    self.view.alpha = .5;
+  } else {
+    self.view.alpha = 1;
+  }
+
+//  self.view.alpha = ((double)arc4random() / 0x100000000);
+//  [sender removeFromSuperview];
 }
 
 - (void)loadView

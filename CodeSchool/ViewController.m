@@ -20,6 +20,7 @@
   self.view.backgroundColor = [UIColor colorWithRed:0.462 green:0.749 blue: 0.937 alpha: 1.0];
 
   UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+  [firstButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
   firstButton.frame = CGRectMake(100, 100, 100, 44);
   [firstButton setTitle:@"Click me!" forState:UIControlStateNormal];
   [firstButton setTitle:@"Clicked!" forState:UIControlStateHighlighted];
@@ -31,6 +32,13 @@
   firstLabel.text = @"Hello, welcome to my app!";
 
   [self.view addSubview:firstLabel];
+}
+
+- (void)buttonPressed:(UIButton *)sender
+{
+  NSLog(@"Button pressed, sender: %@", sender);
+  self.view.alpha = ((double)arc4random() / 0x100000000);
+  [sender removeFromSuperview];
 }
 
 - (void)loadView

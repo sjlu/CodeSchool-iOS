@@ -19,7 +19,7 @@
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor colorWithRed:0.462 green:0.749 blue: 0.937 alpha: 1.0];
 
-  UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
   firstButton.frame = CGRectMake(100, 100, 100, 44);
   [firstButton setTitle:@"Click me!" forState:UIControlStateNormal];
   [firstButton setTitle:@"Clicked!" forState:UIControlStateHighlighted];

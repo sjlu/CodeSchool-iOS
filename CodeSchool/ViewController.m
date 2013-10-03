@@ -30,6 +30,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
   self.view.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+  self.view.alpha = ((double)arc4random() / 0x100000000);
 }
 
 - (void)didReceiveMemoryWarning
